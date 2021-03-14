@@ -18,6 +18,6 @@ char *int_to_bin(unsigned int digit)
  * string functions
  */
 void rev_string(char *s);
-int _str_length(char *s);
+int _strlen(char *s);
 
 #endif
