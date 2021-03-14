@@ -12,4 +12,11 @@
 
 int _printf(const char *format, ...);
 
+char *intToBin(int digit);
+/**
+ * string functions
+ */
+void rev_string(char *s);
+int _str_length(char *s);
+
 #endif

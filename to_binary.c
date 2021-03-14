@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 /**
  * intToBin - converts signed and unsinged ints to binary
  * @digit: integer procided
