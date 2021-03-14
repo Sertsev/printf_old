@@ -12,7 +12,8 @@
 
 int _printf(const char *format, ...);
 
-char *intToBin(int digit);
+char *int_to_bin(unsigned int digit)
+
 /**
  * string functions
  */

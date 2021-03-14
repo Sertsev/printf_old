@@ -1,10 +1,10 @@
 /**
- * intToBin - converts signed and unsinged ints to binary
+ * int_to_bin - converts signed and unsinged ints to binary
  * @digit: integer procided
  * Return: conversion result as string
  */
 
-char *intToBin(int digit)
+char *int_to_bin(unsigned int digit)
 {
 	int b, k = 0;
 	char *bits;
