@@ -4,7 +4,7 @@
  * Return: string length
  */
 
-int _str_length(char *s)
+int _strlen(char *s)
 {
 	int i = 0;
 
@@ -26,7 +26,7 @@ void rev_string(char *s)
 	int length, i;
 
 	i = 0;
-	length = (_str_length(s) - 1);
+	length = (_strlen(s) - 1);
 
 	while (i < length)
 	{
