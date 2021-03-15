@@ -45,14 +45,15 @@ int _printf(const char *format, ...)
 	  switch(*format)
 	    {
 	      /**
-	       * %i to write or print integer
+	       * %i & %d to write or print integer
 	       */
 
 	    case 'i':
+	    case 'd':
 	      printInt = va_arg(vaList, int);
-	      _itoa(printInt, intStr, 20);
+	      _itoa(printInt, intStr, 10);
 	      // char* (*intStr);
-	      append(buffer, *intStr);
+	      _strcat(buffer, intStr);
 	      format++;
 	      count += _strlen(intStr);
 	      break;
