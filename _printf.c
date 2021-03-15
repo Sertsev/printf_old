@@ -29,14 +29,14 @@ int _printf(const char *format, ...)
   char printChar, *printStr, intStr[20];
   va_list vaList;
 
-  va_start(vaList, *format);
+  va_start(vaList, format);
 
   while(*format)
     {
 
       if(*format == '%')
 	{
-	  *format++;
+	  format++;
 
 	  /**
 	   *switch statement for different cases printing
@@ -54,7 +54,7 @@ int _printf(const char *format, ...)
 	      // char* (*intStr);
 	      append(buffer, *intStr);
 	      format++;
-	      count += strlen(intStr);
+	      count += _strlen(intStr);
 	      break;
 
 	      /**
@@ -65,7 +65,7 @@ int _printf(const char *format, ...)
 	      printStr = va_arg(vaList, char *);
 	      append(buffer, *printStr);
 	      format++;
-	      count += strlen(printStr);
+	      count += _strlen(printStr);
 	      break;
 
 	      /**
@@ -139,7 +139,7 @@ int _mywrite(char* any, int count)
  */
 
 void append(char* s, char c) {
-  int len = strlen(s);
+  int len = _strlen(s);
   s[len] = c;
   s[len+1] = '\0';
 }
