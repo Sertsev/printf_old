@@ -37,3 +37,24 @@ void rev_string(char *s)
 		length--;
 	}
 }
+
+/**
+ * _strcat - contactinates strings
+ * @dest: main string
+ * @src: string to concatenate
+ * Return: @dest(destination main string)
+ */
+
+char *_strcat(char *dest, char *src)
+{
+	int length, i;
+
+	length = _strlen(dest);
+
+	for (i = 0 ; src[i] != '\0' ; i++)
+		dest[length + i] = src[i];
+
+	dest[length + i] = '\0';
+
+	return (dest);
+}
