@@ -58,3 +58,25 @@ char *_strcat(char *dest, char *src)
 
 	return (dest);
 }
+
+/**
+ */
+
+char *itoa(int n, char *s)
+{
+	int i, sign;
+
+	sign = n;
+	if (n < 0)
+		n = (-(n));
+	i = 0;
+	do {
+		s[i++] = n % 10 + '0';
+	} while ((n /= 10) > 0);
+	if (sign < 0)
+		s[i++] = '-';
+	s[i] = '\0';
+	rev_string(s);
+
+	return (s);
+}
