@@ -11,7 +11,7 @@
 
 void append(char *s, char c)
 {
-int len = strlen(s);
+int len = _strlen(s);
 s[len] = c;
 s[len + 1] = '\0';
 }
