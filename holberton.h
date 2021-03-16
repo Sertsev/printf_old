@@ -16,5 +16,6 @@ void append(char *s, char c);
 void rev_string(char *s);
 int _strlen(char *s);
 char *_strcat(char *dest, char *src);
+char *itoa(int n, char *s);
 
 #endif
