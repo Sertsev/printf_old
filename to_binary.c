@@ -1,3 +1,5 @@
+#include "holberton.h"
+
 /**
  * int_to_bin - converts signed and unsinged ints to binary
  * @digit: integer procided
