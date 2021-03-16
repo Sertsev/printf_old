@@ -60,6 +60,10 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
+ * itoa - converts int to string
+ * @n: the number to convert
+ * @s: where to store the resulting string
+ * Return: the resulting string
  */
 
 char *itoa(int n, char *s)
