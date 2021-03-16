@@ -18,21 +18,21 @@ while (*format)
 {
 if (*format == '%')
 {
-*format++;
+format++;
 
 switch (*format)
 {
 case 'i':
 case 'd':
 printInt = va_arg(vaList, int);
-_itoa(printInt, intStr, 10);
-_strcat(buffer, *intStr);
+itoa(printInt, intStr);
+_strcat(buffer, intStr);
 format++;
 count += _strlen(intStr);
 break;
 case 's':
 printStr = va_arg(vaList, char *);
-_strcat(buffer, *printStr);
+_strcat(buffer, printStr);
 format++;
 count += _strlen(printStr);
 break;
