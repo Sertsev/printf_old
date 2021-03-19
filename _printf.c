@@ -37,7 +37,7 @@ format++;
 count += _strlen(printStr);
 break;
 case 'c':
-printChar = *(va_arg(vaList, char *));
+printChar = va_arg(vaList, int);
 append(buffer, printChar);
 format++;
 count++;
