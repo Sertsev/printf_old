@@ -1,8 +1,7 @@
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-########################## ALX - Printf Group Project #####################
-======================================================================
-======================== C programming for ALX School ======================
-========================================================================
+ ALX - Printf Group Project 
+===========================
+     C programming for ALX School!
+==================================================================================
 
 The  functions  in  the printf() family produce output according to a format as described below.  The functions printf() and vprintf()
 write output to stdout, the standard output stream; fprintf() and vfprintf() write output  to  the  given  output  stream;  sprintf(),
@@ -14,4 +13,4 @@ The  functions  vprintf(),  vfprintf(),  vdprintf(),  vsprintf(),  vsnprintf()  
 dprintf(), sprintf(), snprintf(), respectively, except that they are called with a va_list instead of a variable number of  arguments.
 These functions do not call the va_end macro.  Because they invoke the va_arg macro, the value of ap is undefined after the call.
 
-####################################################################################################################
+########################################################################################

@@ -1,122 +1,87 @@
 #include "holberton.h"
 
 /**
- *tochar -  a function to change an integer into a character
- *@n: an integer to be changed
- *Return: returns a charcter
+ *_putchar - puts caractere
+ *@c: letter
+ *Return: integer
  */
 
-char tochar(int n)
+int _putchar(char c)
 {
-char c;
-switch (n)
-{
-case 0:
-c = '0';
-break;
-case 1:
-c = '1';
-break;
-case 2:
-c = '2';
-break;
-case 3:
-c = '3';
-break;
-case 4:
-c = '4';
-break;
-case 5:
-c = '5';
-break;
-case 6:
-c = '6';
-break;
-case 7:
-c = '7';
-break;
-case 8:
-c = '8';
-break;
-case 9:
-c = '9';
-break; }
-return (c); }
+write(1, &c, 1);
+return (1); }
 
 /**
- *tostr - a function to change an integer into a string
- *@n: a long unsigned int
- *@instr: converted integer string
- *@base: an integer base type
- *Return: returns pointer
+ *print_caractere - print caractere
+ *@my_list: string to print
+ *Return: void
  */
 
-char *tostr(unsigned long int n, char *instr, int base)
+int print_caractere(va_list my_list)
 {
-int i = 0;
-unsigned int d = n;
+char caractere = va_arg(my_list, int);
+
+_putchar(caractere);
+return (1); }
+
+/**
+ *print_string - print caractere
+ *@my_list: string to print
+ *Return: integer
+ */
+
+int print_string(va_list my_list)
+{
+char *string = va_arg(my_list, char *);
+char *str;
+
+if (string == NULL)
+{
+str = "(null)";
+puts_string(str);
+return (_strlen(str)); }
+puts_string(string);
+return (_strlen(string)); }
+
+/**
+ *print_perc - print caractere
+ *@my_list: string to print
+ *Return: void
+ */
+
+int print_perc(va_list my_list)
+{
+(void)my_list;
+_putchar('%');
+return (1); }
+
+/**
+ *print_decimal - print decimal
+ *@my_list: decimal to sprint
+ *Return: printed decimal
+ */
+
+int print_decimal(va_list my_list)
+{
+int n;
+unsigned int tmp, i, result, size = 1;
+
+result = 0;
+n = va_arg(my_list, int);
 
 if (n < 0)
 {
-n = n * (-1);
-}
-
-if (base > 0)
-{
-while (n >= 1)
-{
-instr[i] = tochar(n % base);
-n = n / base;
-i++;
-}
-
-if (d < 0)
-instr[i] = '-';
-
-instr[i] = '\0';
-}
+result = result + _putchar('-');
+tmp = -(n); }
 else
+tmp = n;
+i = tmp;
+while (i > 9)
 {
-instr = "Error";
-}
-
-return (instr);
-}
-
-/**
- *ntostr - a function to change an integer into a string
- *@n: a long unsigned int
- *@instr: converted integer string
- *@base: an integer base type
- *Return: returns pointer
- */
-
-char *ntostr(int n, char *instr, int base)
+i /= 10;
+size *= 10; }
+while (size >= 1)
 {
-int i = 0;
-int d = n;
-
-if (n < 0)
-{
-n = n * (-1);
-}
-if (base > 0)
-{
-while (n >= 1)
-{
-instr[i] = tochar(n % base);
-n = n / base;
-i++;
-}
-if (d < 0)
-{
-instr[i] = '-';
-i++; }
-instr[i] = '\0';
-}
-else
-{
-instr = "Error";
-}
-return (instr);
-}
+result += _putchar(((tmp / size) % 10) + '0');
+size /= 10; }
+return (result); }

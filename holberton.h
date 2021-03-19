@@ -1,17 +1,38 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
-#include <stdarg.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
+#include <stdarg.h>
 #include <unistd.h>
+#include <string.h>
 
+/**
+ * struct find_type - type structure
+ * @t: pointer to the argument
+ * @f: pointer-function associated with the argument
+ */
+
+typedef struct find_type
+{
+char t;
+int (*f)(va_list);
+
+} find_t;
+
+int _printf(const char *format, ...);
+int find_index(char str, const char *index);
 int _strlen(char *s);
-char tochar(int n);
-char *tostr(unsigned long int n, char *instr, int base);
-char *ntostr(int n, char *instr, int base);
+int print_caractere(va_list my_list);
+int print_string(va_list my_list);
 int _putchar(char c);
-int _mySwit(char letter, va_list pargs);
-char _printf(const char *format, ...);
-
+int (*find_function(const char s))(va_list);
+int print_perc(va_list my_list);
+int print_decimal(va_list my_list);
+int puts_string(char *string);
+int print_S(va_list my_list);
+int print_binary(va_list my_list);
+int puts_number(int n);
 
 #endif
