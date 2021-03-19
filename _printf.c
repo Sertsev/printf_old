@@ -1,69 +1,47 @@
 #include "holberton.h"
 
 /**
- *_printf - a function to print whatever string argument it recieves
- *@format: a formatted string
- *Return: returns the number of string
+ *_printf - prints the output
+ *@format: character string
+ *Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
-int printInt, count = 0;
-char buffer[1024] = "";
-char printChar, *printStr, intStr[20];
-va_list vaList;
+	va_list my_list;
+	int i = 0, fi;
+	int result = 0;
+	int (*func)(va_list);
+	char index[9] = {'c', 's', 'd', 'i', 'u', 'S', 'b', '%', '\0'};
 
-va_start(vaList, format);
-while (*format)
-{
-if (*format == '%')
-{
-format++;
-
-switch (*format)
-{
-case 'i':
-case 'd':
-printInt = va_arg(vaList, int);
-itoa(printInt, intStr);
-_strcat(buffer, intStr);
-format++;
-count += _strlen(intStr);
-break;
-case 's':
-printStr = va_arg(vaList, char *);
-_strcat(buffer, printStr);
-format++;
-count += _strlen(printStr);
-break;
-case 'c':
-printChar = va_arg(vaList, int);
-append(buffer, printChar);
-format++;
-count++;
-break;
-case '%':
-append(buffer, '%');
-format++;
-count++;
-break;
-case '\0':
-break;
-default:
-append(buffer, '%');
-append(buffer, *format);
-format++;
-count += 2;
-}
-}
-else
-{
-append(buffer, *format);
-format++;
-count++;
-}
-}
-_mywrite(buffer, count);
-
-return (count);
+	va_start(my_list, format);
+	if (format == NULL || (format[i] == '%' && format[i + 1] == 0))
+		return (-1);
+	while (format[i])
+	{
+		if (format[i] == '%' && format[i + 1])
+		{
+			fi = find_index(format[i + 1], index);
+			if (fi != -1)
+			{
+				func = find_function(format[i + 1]);
+				result += func(my_list);
+				i++;
+			}
+			else
+			{
+				result += 2;
+				_putchar(format[i]);
+				_putchar(format[i + 1]);
+				i++;
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			result++;
+		}
+		i++;
+	}
+	va_end(my_list);
+	return (result);
 }
